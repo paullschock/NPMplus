@@ -9,7 +9,7 @@ ARG AWSLC_VER=fa9bc8d6f7cfb2cf849b247fb06bbbfc41ecc9d6 # v5.11.0
 
 ARG NGINX_VER=140aa942711868a8daeb95810bc9a81f272ada72 # release-1.31.8
 ARG DTR_VER=1.29.2
-ARG ORP_VER=1.31.7
+ARG ORP_VER=1.31.8
 ARG ZNP_VER=1.30.0
 
 ARG NB_VER=df036cc80cd4f5b0bf67b25b0a10d0ee86ba5bdb # master
@@ -69,7 +69,7 @@ RUN git-clone-commit.sh https://github.com/nginx/nginx "$NGINX_VER" /src/nginx &
     echo "0aa9c73e7515dbbd48ecc798f7894412c1a50e96e98aee25847e823059faf821  /src/nginx/3.patch" | sha256sum -c - && \
     git apply /src/nginx/3.patch && \
     wget -q https://raw.githubusercontent.com/openresty/openresty/master/patches/nginx/"$ORP_VER"/nginx-"$ORP_VER"-resolver_conf_parsing.patch -O /src/nginx/4.patch && \
-    echo "4fd457ee6aa7629bc10e24595a992f47babdc4bb78b353527c5136cd9ae0e47c  /src/nginx/4.patch" | sha256sum -c - && \
+    echo "24d6a51349551e65c16709122307a12ce84274cbbaa224adfa5853aa367608b8  /src/nginx/4.patch" | sha256sum -c - && \
     git apply /src/nginx/4.patch && \
     wget -q https://raw.githubusercontent.com/zlib-ng/patches/master/nginx/"$ZNP_VER"-zlib-ng.patch -O /src/nginx/5.patch && \
     echo "bcd0f2fb9723fc1f251f94cead8d5160e767f7d4a04365331396a72a9ba54c6b  /src/nginx/5.patch" | sha256sum -c - && \
